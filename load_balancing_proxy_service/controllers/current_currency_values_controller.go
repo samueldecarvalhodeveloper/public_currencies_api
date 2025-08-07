@@ -13,16 +13,25 @@ type CurrentCurrencyValuesController struct {
 	loadBalancer loadbalancer.LoadBalancer
 }
 
-func NewCurrentCurrencyValuesController(loadBalancer loadbalancer.LoadBalancer) CurrentCurrencyValuesController {
+func NewCurrentCurrencyValuesController(
+	loadBalancer loadbalancer.LoadBalancer) CurrentCurrencyValuesController {
 	return CurrentCurrencyValuesController{
 		loadBalancer: loadBalancer,
 	}
 }
 
-func (currentCurrencyValuesController *CurrentCurrencyValuesController) HandleCurrentCurrencyValuesRoute(context fiber.Ctx) error {
-	currentServerToBeRedirected := currentCurrencyValuesController.loadBalancer.GetCurrentServer()
+func (currentCurrencyValuesController *CurrentCurrencyValuesController) HandleCurrentCurrencyValuesRoute(
+	context fiber.Ctx) error {
+	currentServerToBeRedirected :=
+		currentCurrencyValuesController.loadBalancer.GetCurrentServer()
 
-	currentServerToBeRedirectedURI := fmt.Sprintf("%s%s", currentServerToBeRedirected, constants.CURRENT_CURRENCY_VALUES_ROUTE_PATH)
+	currentServerToBeRedirectedURI :=
+		fmt.Sprintf(
+			"%s%s",
+			currentServerToBeRedirected,
+			constants.CURRENT_CURRENCY_VALUES_ROUTE_PATH)
 
-	return context.Redirect().Status(fiber.StatusPermanentRedirect).To(currentServerToBeRedirectedURI)
+	return context.Redirect().Status(
+		fiber.StatusPermanentRedirect).To(
+		currentServerToBeRedirectedURI)
 }

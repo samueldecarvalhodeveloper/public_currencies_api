@@ -15,9 +15,12 @@ func New(listOfServersToBeBalanced []string) LoadBalancer {
 }
 
 func (loadBalancer *LoadBalancer) GetCurrentServer() string {
-	currentServer := loadBalancer.listOfServersToBeBalanced[loadBalancer.currentServerIndex]
+	currentServer :=
+		loadBalancer.listOfServersToBeBalanced[loadBalancer.currentServerIndex]
 
-	if specifications.IsCurrentServerTheLast(loadBalancer.currentServerIndex, loadBalancer.listOfServersToBeBalanced) {
+	if specifications.IsCurrentServerTheLast(
+		loadBalancer.currentServerIndex,
+		loadBalancer.listOfServersToBeBalanced) {
 		loadBalancer.currentServerIndex = 0
 	} else {
 		loadBalancer.currentServerIndex++

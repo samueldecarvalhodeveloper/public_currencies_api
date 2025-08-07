@@ -11,9 +11,15 @@ import (
 
 func GetApplicationInstance() application.Application {
 	server := fiber.New()
-	loadbalancerInstance := loadbalancer.New(constants.LIST_OF_SERVICES_TO_BE_BALANCED())
-	currentCurrencyValuesController := controllers.NewCurrentCurrencyValuesController(loadbalancerInstance)
-	notFoundErrorController := controllers.NewNotFoundErrorController()
+	loadbalancerInstance :=
+		loadbalancer.New(constants.LIST_OF_SERVICES_TO_BE_BALANCED())
+	currentCurrencyValuesController :=
+		controllers.NewCurrentCurrencyValuesController(loadbalancerInstance)
+	notFoundErrorController :=
+		controllers.NewNotFoundErrorController()
 
-	return application.New(server, currentCurrencyValuesController, notFoundErrorController)
+	return application.New(
+		server,
+		currentCurrencyValuesController,
+		notFoundErrorController)
 }
