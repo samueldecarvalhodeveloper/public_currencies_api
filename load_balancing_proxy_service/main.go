@@ -1,9 +1,12 @@
 package main
 
-import "load_balancing_proxy_service/application"
+import (
+	"load_balancing_proxy_service/infrastructure/concerns"
+)
 
 func main() {
-	app := application.New()
+
+	app := concerns.GetApplicationInstance()
 
 	app.RunServer()
 }
