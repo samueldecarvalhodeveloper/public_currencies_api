@@ -1,0 +1,54 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Go build output
+/build/
+/bin/
+/dist/
+
+# Go workspace file (if not shared)
+go.work
+go.work.sum
+
+# Vendor directory (if not using `go mod vendor`)
+/vendor/
+
+# Go coverage files
+*.cover
+*.coverprofile
+coverage.out
+coverage.html
+
+# Logs and debug output
+*.log
+*.tmp
+*.swp
+
+# IDEs and Editors
+# VSCode
+.vscode/
+
+# JetBrains (GoLand, IntelliJ, etc.)
+.idea/
+
+# MacOS
+.DS_Store
+
+# Linux/Mac swap files
+*~
+
+# Dependency directories
+/pkg/
+
+# Test results
+test-results/
+
+# Environment files (if you store them)
+.env
+.env.*
