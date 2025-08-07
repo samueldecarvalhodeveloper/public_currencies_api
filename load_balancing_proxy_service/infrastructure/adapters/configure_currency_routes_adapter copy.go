@@ -7,13 +7,10 @@ import (
 	"load_balancing_proxy_service/controllers"
 )
 
-func ConfigureRoutes(
+func ConfigureCurrencyRoutes(
 	server *fiber.App,
-	currentCurrencyValuesController controllers.CurrentCurrencyValuesController,
-	notFoundErrorController controllers.NotFoundErrorController) {
+	currentCurrencyValuesController controllers.CurrentCurrencyValuesController) {
 	server.Get(
 		constants.CURRENT_CURRENCY_VALUES_ROUTE_PATH,
 		currentCurrencyValuesController.HandleCurrentCurrencyValuesRoute)
-
-	server.Use(notFoundErrorController.HandleNotFoundErrorRoute)
 }

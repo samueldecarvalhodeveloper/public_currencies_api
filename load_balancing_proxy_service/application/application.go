@@ -15,9 +15,11 @@ func New(
 	server *fiber.App,
 	currentCurrencyValuesController controllers.CurrentCurrencyValuesController,
 	notFoundErrorController controllers.NotFoundErrorController) Application {
-	adapters.ConfigureRoutes(
+	adapters.ConfigureCurrencyRoutes(
 		server,
-		currentCurrencyValuesController,
+		currentCurrencyValuesController)
+	adapters.ConfigureNotFoundErrorRoutes(
+		server,
 		notFoundErrorController)
 
 	application := Application{
