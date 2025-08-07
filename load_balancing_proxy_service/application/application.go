@@ -3,8 +3,8 @@ package application
 import (
 	"github.com/gofiber/fiber/v3"
 
-	"load_balancing_proxy_service/constants"
 	"load_balancing_proxy_service/controllers"
+	"load_balancing_proxy_service/infrastructure/adapters"
 )
 
 type Application struct {
@@ -15,11 +15,10 @@ func New(
 	server *fiber.App,
 	currentCurrencyValuesController controllers.CurrentCurrencyValuesController,
 	notFoundErrorController controllers.NotFoundErrorController) Application {
-	server.Get(
-		constants.CURRENT_CURRENCY_VALUES_ROUTE_PATH,
-		currentCurrencyValuesController.HandleCurrentCurrencyValuesRoute)
-
-	server.Use(notFoundErrorController.HandleNotFoundErrorRoute)
+	adapters.ConfigureRoutes(
+		server,
+		currentCurrencyValuesController,
+		notFoundErrorController)
 
 	application := Application{
 		server: server,
