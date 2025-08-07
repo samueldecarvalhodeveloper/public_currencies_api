@@ -15,7 +15,9 @@ func New(
 	server *fiber.App,
 	currentCurrencyValuesController controllers.CurrentCurrencyValuesController,
 	notFoundErrorController controllers.NotFoundErrorController) Application {
-	server.Get(constants.CURRENT_CURRENCY_VALUES_ROUTE_PATH, currentCurrencyValuesController.HandleCurrentCurrencyValuesRoute)
+	server.Get(
+		constants.CURRENT_CURRENCY_VALUES_ROUTE_PATH,
+		currentCurrencyValuesController.HandleCurrentCurrencyValuesRoute)
 
 	server.Use(notFoundErrorController.HandleNotFoundErrorRoute)
 
