@@ -6,7 +6,6 @@ import (
 )
 
 func main() {
-
 	app := concerns.GetApplicationInstance()
 
 	app.RunServer(constants.SERVER_PORT())
