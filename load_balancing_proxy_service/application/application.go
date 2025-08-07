@@ -18,7 +18,7 @@ func New(
 	adapters.ConfigureCurrencyRoutes(
 		server,
 		currentCurrencyValuesController)
-	adapters.ConfigureNotFoundErrorRoutes(
+	adapters.ConfigureNotFoundErrorRoute(
 		server,
 		notFoundErrorController)
 

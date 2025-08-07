@@ -6,7 +6,7 @@ import (
 	"load_balancing_proxy_service/controllers"
 )
 
-func ConfigureNotFoundErrorRoutes(
+func ConfigureNotFoundErrorRoute(
 	server *fiber.App,
 	notFoundErrorController controllers.NotFoundErrorController) {
 	server.Use(notFoundErrorController.HandleNotFoundErrorRoute)
