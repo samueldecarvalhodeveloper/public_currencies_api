@@ -28,6 +28,6 @@ func New(
 	return application
 }
 
-func (application Application) RunServer() {
-	application.server.Listen(constants.SERVER_PORT)
+func (application Application) RunServer(port string) {
+	application.server.Listen(port)
 }
