@@ -1,3 +1,19 @@
 #syntax=docker/dockerfile:experimental
 
-go test ./tests/...
+FROM golang:latest
+
+WORKDIR /src/app/
+
+COPY ./main.go /src/app/main.go
+COPY ./go.sum /src/app/go.sum
+COPY ./go.mod /src/app/go.mod
+COPY ./tests/ /src/app/tests/
+COPY ./infrastructure/ /src/app/infrastructure/
+COPY ./domains/ /src/app/domains/
+COPY ./controllers/ /src/app/controllers/
+COPY ./constants/ /src/app/constants/
+COPY ./application/ /src/app/application/
+
+RUN go mod tidy
+
+CMD go test ./tests/...
