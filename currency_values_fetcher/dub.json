@@ -1,0 +1,9 @@
+{
+	"authors": [
+		"samueldecarvalho"
+	],
+	"copyright": "Copyright © 2025, samueldecarvalho",
+	"description": "A minimal D application.",
+	"license": "MIT",
+	"name": "currency_values_fetcher"
+}

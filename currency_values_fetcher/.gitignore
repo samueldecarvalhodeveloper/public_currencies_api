@@ -1,0 +1,16 @@
+.dub
+docs.json
+__dummy.html
+docs/
+/currency_values_fetcher
+currency_values_fetcher.so
+currency_values_fetcher.dylib
+currency_values_fetcher.dll
+currency_values_fetcher.a
+currency_values_fetcher.lib
+currency_values_fetcher-test-*
+*.exe
+*.pdb
+*.o
+*.obj
+*.lst
