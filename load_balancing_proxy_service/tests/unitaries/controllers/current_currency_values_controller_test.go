@@ -1,4 +1,4 @@
-package adapters_test
+package controllers_test
 
 import (
 	"fmt"
@@ -11,10 +11,9 @@ import (
 	"load_balancing_proxy_service/constants"
 	"load_balancing_proxy_service/controllers"
 	loadbalancer "load_balancing_proxy_service/domains/load_balancer"
-	"load_balancing_proxy_service/infrastructure/adapters"
 )
 
-func TestIfFunctionConfigureCurrencyRoutesConfiguresCurrencyRoutes(
+func TestIfMethodHandleCurrentCurrencyValuesRouteHandlesCurrentCurrencyValuesRequestResponse(
 	t *testing.T) {
 	server := fiber.New()
 	loadbalancerInstance :=
@@ -33,12 +32,12 @@ func TestIfFunctionConfigureCurrencyRoutesConfiguresCurrencyRoutes(
 		requestURI,
 		nil)
 
-	adapters.ConfigureCurrencyRoutes(
-		server,
-		currentCurrencyValuesController)
+	server.Get(
+		requestURI,
+		currentCurrencyValuesController.HandleCurrentCurrencyValuesRoute)
 
-	requestResponse, _ := server.Test(
-		verificationRequest)
+	requestResponse, _ :=
+		server.Test(verificationRequest)
 
 	assert.Equal(
 		t,

@@ -1,4 +1,4 @@
-package adapters_test
+package controllers_test
 
 import (
 	"net/http/httptest"
@@ -9,10 +9,9 @@ import (
 
 	"load_balancing_proxy_service/constants"
 	"load_balancing_proxy_service/controllers"
-	"load_balancing_proxy_service/infrastructure/adapters"
 )
 
-func TestIfFunctionConfigureNotFoundErrorRouteConfiguresNotFoundErrorRoute(
+func TestIfMethodHandleNotFoundErrorRouteHandlesNotFoundErrorRequestResponse(
 	t *testing.T) {
 	server := fiber.New()
 	notFoundErrorController :=
@@ -23,9 +22,7 @@ func TestIfFunctionConfigureNotFoundErrorRouteConfiguresNotFoundErrorRoute(
 		constants.NOT_EXISTING_ROUTE,
 		nil)
 
-	adapters.ConfigureNotFoundErrorRoute(
-		server,
-		notFoundErrorController)
+	server.Use(notFoundErrorController.HandleNotFoundErrorRoute)
 
 	requestResponse, _ := server.Test(
 		verificationRequest)

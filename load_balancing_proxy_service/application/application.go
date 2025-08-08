@@ -1,6 +1,8 @@
 package application
 
 import (
+	"fmt"
+
 	"github.com/gofiber/fiber/v3"
 
 	"load_balancing_proxy_service/controllers"
@@ -29,6 +31,8 @@ func New(
 	return application
 }
 
-func (application Application) RunServer(port string) {
-	application.server.Listen(port)
+func (application Application) RunServer(port int) {
+	serverPort := fmt.Sprintf(":%d", port)
+
+	application.server.Listen(serverPort)
 }
