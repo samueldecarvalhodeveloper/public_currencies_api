@@ -1,6 +1,7 @@
 package controllers_test
 
 import (
+	"fmt"
 	"net/http/httptest"
 	"testing"
 
@@ -33,7 +34,42 @@ func TestIfMethodHandleNotFoundErrorRouteHandlesNotFoundErrorRequestResponse(
 	requestResponse.Body.Close()
 
 	responseBodyCastedToString := string(responseBody)
+	responseBodyContentLength := fmt.Sprintf(
+		"%d",
+		len(responseBodyCastedToString))
 
+	requestResponseHeaderContentType :=
+		requestResponse.Header.Get(fiber.HeaderContentType)
+	requestResponseHeaderContentLength :=
+		requestResponse.Header.Get(fiber.HeaderContentLength)
+
+	requestResponseHeaderAccessControlAllowOrigin :=
+		requestResponse.Header.Get(fiber.HeaderAccessControlAllowOrigin)
+	requestResponseHeaderAccessControlAllowMethods :=
+		requestResponse.Header.Get(fiber.HeaderAccessControlAllowMethods)
+	requestResponseHeaderAccessControlAllowHeaders :=
+		requestResponse.Header.Get(fiber.HeaderAccessControlAllowHeaders)
+
+	assert.Equal(
+		t,
+		constants.PROTOBUF_CONTENT_TYPE_VALUE,
+		requestResponseHeaderContentType)
+	assert.Equal(
+		t,
+		responseBodyContentLength,
+		requestResponseHeaderContentLength)
+	assert.Equal(
+		t,
+		constants.ACCESS_CONTROL_ALLOW_ORIGIN_VALUE,
+		requestResponseHeaderAccessControlAllowOrigin)
+	assert.Equal(
+		t,
+		constants.ACCESS_CONTROL_ALLOW_METHODS_VALUE,
+		requestResponseHeaderAccessControlAllowMethods)
+	assert.Equal(
+		t,
+		constants.ACCESS_CONTROL_ALLOW_HEADERS_VALUE,
+		requestResponseHeaderAccessControlAllowHeaders)
 	assert.Equal(
 		t,
 		fiber.StatusNotFound,

@@ -19,7 +19,6 @@ func NewNotFoundErrorController() NotFoundErrorController {
 func (notFoundErrorController *NotFoundErrorController) HandleNotFoundErrorRoute(
 	context fiber.Ctx) error {
 	notFoundErrorMessageResponse := concerns.GetNotFoundErrorMessageResponse()
-
 	notFoundErrorMessageResponseContentLength := fmt.Sprintf(
 		"%d",
 		len(notFoundErrorMessageResponse))
