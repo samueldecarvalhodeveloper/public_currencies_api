@@ -1,4 +1,4 @@
-package controllers_test
+package components_test
 
 import (
 	"fmt"
@@ -13,7 +13,7 @@ import (
 	loadbalancer "load_balancing_proxy_service/domains/load_balancer"
 )
 
-func TestIfMethodHandleCurrentCurrencyValuesRouteHandlesCurrentCurrencyValuesRequestResponse(
+func TestIfServerBalancesTheLoadOfServiceServer(
 	t *testing.T) {
 	server := fiber.New()
 	loadbalancerInstance :=

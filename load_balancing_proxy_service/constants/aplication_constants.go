@@ -22,7 +22,7 @@ func LIST_OF_SERVICES_TO_BE_BALANCED() []string {
 }
 
 func LIST_OF_SERVICES_TO_BE_BALANCED_MOCK() []string {
-	return []string{"first_server", "second_server", "third_server"}
+	return []string{"first_server/", "second_server/", "third_server/"}
 }
 
 const REQUEST_METHOD = "GET"
