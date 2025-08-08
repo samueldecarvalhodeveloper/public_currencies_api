@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package notfounderrormessageresponseentity;
+
+option go_package = "infrastructure/concerns;concerns";
+
+message NotFoundErrorMessageResponseEntity {
+  string message = 1;
+}

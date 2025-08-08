@@ -1,15 +1,15 @@
-package concerns_test
+package factories_test
 
 import (
 	"github.com/stretchr/testify/assert"
 
-	"load_balancing_proxy_service/infrastructure/concerns"
+	"load_balancing_proxy_service/infrastructure/factories"
 	"testing"
 )
 
 func TestIfFunctionGetApplicationInstanceReturnsAnApplicationInstance(
 	t *testing.T) {
-	instance := concerns.GetApplicationInstance()
+	instance := factories.GetApplicationInstance()
 
 	assert.NotNil(
 		t,

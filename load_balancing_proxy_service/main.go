@@ -2,11 +2,11 @@ package main
 
 import (
 	"load_balancing_proxy_service/constants"
-	"load_balancing_proxy_service/infrastructure/concerns"
+	"load_balancing_proxy_service/infrastructure/factories"
 )
 
 func main() {
-	app := concerns.GetApplicationInstance()
+	app := factories.GetApplicationInstance()
 
 	app.RunServer(constants.SERVER_PORT())
 }

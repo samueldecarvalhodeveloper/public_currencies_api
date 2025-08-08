@@ -27,7 +27,11 @@ func LIST_OF_SERVICES_TO_BE_BALANCED_MOCK() []string {
 
 const REQUEST_METHOD = "GET"
 
-const NOT_FOUND_ERROR_MESSAGE_RESPONSE_BODY = "{\"message\":\"Not Found!\"}"
+const NOT_FOUND_ERROR_MESSAGE_RESPONSE_BODY = "\n\nNot Found!"
+
+func LIST_OF_BYTES_OF_NOT_FOUND_ERROR_MESSAGE_RESPONSE_BODY() []uint8 {
+	return []uint8([]byte{0xa, 0xa, 0x4e, 0x6f, 0x74, 0x20, 0x46, 0x6f, 0x75, 0x6e, 0x64, 0x21})
+}
 
 const LOCAL_HOST_PORT = 3000
 

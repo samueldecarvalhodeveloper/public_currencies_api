@@ -1,4 +1,4 @@
-package concerns
+package factories
 
 import (
 	"github.com/gofiber/fiber/v3"
